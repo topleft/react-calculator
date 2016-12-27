@@ -1,4 +1,8 @@
-body {
+.clearfix {
+  overflow: auto;
+}
+
+/*body {
   background: #71B66F;
   box-sizing: border-box;
   margin: 0;
@@ -87,4 +91,4 @@ body {
 
 .operator {
   font-size: 1.3em;
-}
+}*/

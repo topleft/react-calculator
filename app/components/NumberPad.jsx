@@ -29,6 +29,7 @@ const NumberPad = React.createClass({
     let buttons = rows.map((row, j) => {
       row = row.map((button) => {
         return <InputButton
+          className="btn-floating blue"
           id={button.id  || button.text}
           text={button.text}
           onClick={this.props.onNumberClick}
@@ -36,12 +37,14 @@ const NumberPad = React.createClass({
           key={button.key || button.text}
         />
       })
-      return <div key={rows[j][0]['text']+'row'}>{row}</div>
+      return <div className="clearfix" key={rows[j][0]['text']+'row'}>{row}</div>
     })
 
     return (
-      <div>
-        {buttons}
+      <div className='row number-pad'>
+        <div className='col offset-s4'>
+          {buttons}
+        </div>
       </div>
     )
 

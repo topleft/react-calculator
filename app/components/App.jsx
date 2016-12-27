@@ -24,12 +24,13 @@ const App = React.createClass({
 
   onNumberClick: function(event) {
     let userInput = event.target.value
-    if (this.state.clearOnNextClick) {
+    let clear = this.state.clearOnNextClick
+    if (clear) {
       userInput = event.target.value
     } else {
       userInput = this.state.userInput + event.target.value
     }
-    this.setState({userInput: userInput})
+    this.setState({userInput: userInput, clearOnNextClick: false})
   },
 
   calculate: function(operator){
@@ -38,6 +39,7 @@ const App = React.createClass({
     let storedNumber = this.state.storedNumber
     let inputNumber = this.state.userInput
     let storedOperator = this.state.operator
+    let operatorToSave = operator == 'equals' ? null : operator
     if (storedNumber && storedOperator) {
        switch(storedOperator) {
         case 'plus':
@@ -48,33 +50,45 @@ const App = React.createClass({
           break;
       }
       console.log('result', result);
-      this.setState({userInput: result, storedNumber: result, operator: operator, clearOnNextClick: true})
+      this.setState({userInput: result, storedNumber: result, operator: operatorToSave, clearOnNextClick: true})
     } else if (storedNumber) {
-      this.setState({operator: operator, clearOnNextClick: true})
+      this.setState({operator: operatorToSave, clearOnNextClick: true})
     } else {
-      this.setState({storedNumber: inputNumber, operator: operator, clearOnNextClick: true})
+      this.setState({storedNumber: inputNumber, operator: operatorToSave, clearOnNextClick: true})
     }
   },
 
   onOperatorClick: function(event) {
-    this.calculate(event.target.value)
+    let operator = event.target.value
+    console.log(operator);
+    if (operator == 'clear') {
+      this.setState({
+        userInput: '',
+        storedNumber: null,
+        operator: null,
+        clearOnNextClick: false
+      })
+    } else {
+      this.calculate(operator)
+    }
   },
 
   render: function () {
-    console.log('wtf')
-    return <div>
-      <Screen
-        onScreenChange={this.onScreenChange}
-        userInput={this.state.userInput}
-      />
-      <OperatorPad
-        onOperatorClick={this.onOperatorClick}
-      />
-      <NumberPad onNumberClick={this.onNumberClick}/>
+    let style = {
+      marginTop: '11rem',
+    }
+    return <div style={style} className="row calculator">
+      <div className="col s4 offset-s4">
+        <Screen
+          onScreenChange={this.onScreenChange}
+          userInput={this.state.userInput}
+        />
+        <OperatorPad className="row" onOperatorClick={this.onOperatorClick}/>
+        <NumberPad className="row" onNumberClick={this.onNumberClick}/>
+      </div>
     </div>
   }
 });
-
 
 
 export default App;
