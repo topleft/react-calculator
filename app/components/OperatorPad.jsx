@@ -6,7 +6,7 @@ const OperatorPad = React.createClass({
   render: function () {
     return(
       <div className="row operator-pad clearfix">
-        <div className="col offset-s4">
+        <div className="col">
           <InputButton
             className="btn-floating orange"
             id='clear'

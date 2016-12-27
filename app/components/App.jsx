@@ -77,16 +77,22 @@ const App = React.createClass({
     let style = {
       marginTop: '11rem',
     }
-    return <div style={style} className="row calculator">
-      <div className="col s4 offset-s4">
-        <Screen
-          onScreenChange={this.onScreenChange}
-          userInput={this.state.userInput}
-        />
-        <OperatorPad className="row" onOperatorClick={this.onOperatorClick}/>
-        <NumberPad className="row" onNumberClick={this.onNumberClick}/>
+    return (
+      <div style={style} className="row calculator valign-wrapper">
+        <div className="col s2 center-block">
+          <Screen
+            onScreenChange={this.onScreenChange}
+            userInput={this.state.userInput}
+          />
+          <div className="valign-wrapper">
+            <div className="col center-block">
+              <OperatorPad className="row" onOperatorClick={this.onOperatorClick}/>
+              <NumberPad className="row" onNumberClick={this.onNumberClick}/>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    )
   }
 });
 

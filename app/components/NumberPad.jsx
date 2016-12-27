@@ -42,7 +42,7 @@ const NumberPad = React.createClass({
 
     return (
       <div className='row number-pad'>
-        <div className='col offset-s4'>
+        <div className='col'>
           {buttons}
         </div>
       </div>
