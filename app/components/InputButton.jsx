@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NumberButton = React.createClass({
+const InputButton = React.createClass({
   render: function () {
     return <button
       onClick={this.props.onClick}
@@ -10,4 +10,4 @@ const NumberButton = React.createClass({
   }
 });
 
-export default NumberButton;
+export default InputButton;
