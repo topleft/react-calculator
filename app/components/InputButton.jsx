@@ -5,7 +5,7 @@ const InputButton = React.createClass({
     return <button
       onClick={this.props.onClick}
       value={this.props.value}>
-        {this.props.number}
+        {this.props.text}
       </button>
   }
 });

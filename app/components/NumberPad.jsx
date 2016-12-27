@@ -30,7 +30,7 @@ const NumberPad = React.createClass({
       row = row.map((button) => {
         return <InputButton
           id={button.id  || button.text}
-          number={button.text}
+          text={button.text}
           onClick={this.props.onNumberClick}
           value={button.text}
           key={button.key || button.text}
@@ -38,6 +38,7 @@ const NumberPad = React.createClass({
       })
       return <div key={rows[j][0]['text']+'row'}>{row}</div>
     })
+
     return (
       <div>
         {buttons}
