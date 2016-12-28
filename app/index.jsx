@@ -1,8 +1,14 @@
-import App from './components/App';
+import Calculator from './components/calculator/Calculator';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Todo from './components/todo/Todo';
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('app')
+  <Calculator />,
+  document.getElementById('calculator')
+);
+
+ReactDOM.render(
+  <Todo />,
+  document.getElementById('todo')
 );

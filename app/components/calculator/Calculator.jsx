@@ -3,7 +3,7 @@ import NumberPad from './NumberPad'
 import OperatorPad from './OperatorPad'
 import Screen from './Screen'
 
-const App = React.createClass({
+const Calculator = React.createClass({
   getInitialState: function() {
     return {
       userInput: '',
@@ -97,4 +97,4 @@ const App = React.createClass({
 });
 
 
-export default App;
+export default Calculator;
